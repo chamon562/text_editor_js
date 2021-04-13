@@ -39,7 +39,10 @@ function makeBold(elem) {
 /**
  * Toggle the italic class for the output text
  */
-function makeItalic(elem) {}
+function makeItalic(elem) {
+  elem.classList.toggle("active");
+  document.getElementById("text-output").classList.toggle("italic");
+}
 
 /**
  * Toggle the underline class for the output text
@@ -48,6 +51,15 @@ function makeItalic(elem) {}
  * HINT: Use contains, remove, and add functions
  */
 function makeUnderline(elem) {
+  elem.classList.toggle("active");
+  let formattedText = document.getElementById("text-output");
+  if (formattedText.classList.contains("underline")) {
+    formattedText.classList.remove("underline");
+    console.log(formattedText,"remove underline class")
+  } else {
+    formattedText.classList.add("underline");
+    console.log(formattedText,"add underline class")
+  }
   //CODE GOES HERE
 }
 
