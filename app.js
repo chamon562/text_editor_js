@@ -10,14 +10,14 @@
  * HINT: Use the onkeydown function inside HTML
  */
 
-let text = document.getElementById("text-input");
+// let text = document.getElementById("text-input");
 // console.log(text)
 function updateText() {
   //   console.log(e);
   // // CODE GOES HERE
   //   console.log("hello im updating");
-  //   let text = document.getElementById("text-input").value;
-  document.getElementById("text-output").innerHTML = text.value;
+  let text = document.getElementById("text-input").value;
+  document.getElementById("text-output").innerHTML = text;
 }
 /**
  * Toggle the bold class for the output text
@@ -27,8 +27,13 @@ function updateText() {
  * HINT: Toggle .active class for the button
  */
 function makeBold(elem) {
+  console.log(elem.classList.toggle("active"));
+  console.log(elem);
+  elem.classList.toggle("active");
+
+  document.getElementById("text-output").classList.toggle("bold");
   //CODE GOES HERE
-  console.log(text);
+  //   console.log("line 31 of makeBold function onclick placed in index.html",this.text);
 }
 
 /**
