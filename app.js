@@ -1,8 +1,8 @@
 /**
  * TODO = DONE: Update the text in the "Formatted Text" section as a user types in the textarea
- * TODO TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked
- * TODO: Add an .underline class to "Formatted Text" when Underline button is clicked
- * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
+ * TODO = DONE TOGETHER: Add a .bold, .italic classes to "Formatted Text" when the appropriate button is clicked
+ * TODO = DONE: Add an .underline class to "Formatted Text" when Underline button is clicked
+ * TODO = : Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
 /**
@@ -55,10 +55,10 @@ function makeUnderline(elem) {
   let formattedText = document.getElementById("text-output");
   if (formattedText.classList.contains("underline")) {
     formattedText.classList.remove("underline");
-    console.log(formattedText,"remove underline class")
+    console.log(formattedText, "remove underline class");
   } else {
     formattedText.classList.add("underline");
-    console.log(formattedText,"add underline class")
+    console.log(formattedText, "add underline class");
   }
   //CODE GOES HERE
 }
@@ -71,4 +71,14 @@ function makeUnderline(elem) {
  */
 function alignText(elem, alignType) {
   // CODE GOES HERE
+  //   set the active state get the element.classlist
+  elem.classList.toggle("active");
+  console.log(alignType);
+  document.getElementById("text-output").style.textAlign = alignType;
+  let btnList = document.getElementsByClassName("align");
+  for (let i = 0; i < btnList.length; i++) {
+    btnList[i].classList.remove("active");
+    console.log(btnList[i])
+  }
+  elem.classList.add("acitve");
 }
