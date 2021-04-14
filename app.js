@@ -80,10 +80,22 @@ alignText = (elem, alignType) => {
   elem.classList.toggle("active");
   console.log(alignType);
   document.getElementById("text-output").style.textAlign = alignType;
-  let btnList = document.querySelectorAll("align").forEach((btn)=>{
-    btn.classList.remove("active")
-  });
-  console.log(btnList)
+  let alignButtons = document.getElementsByClassName("align");
+  console.log(alignButtons);
+  // .map TypeError: alignButtons.map is not a function
+  // at alignText (app.js:84)
+  // at HTMLButtonElement.onclick (index.html:53)
+  // The reason for error because alignButtons is not an array and .map and .forEach is for looping throug arrays.
+  // alignButtons is a html collection it looks like an array it has a length but does not have same property of an array. it doesnt contain forEach or map
+  // need to use external for of loop
+  for (let button of alignButtons) {
+    button.classList.remove("active");
+    console.log(button)
+  }
+  // let btnLists = document.querySelectorAll("align").forEach((btn) => {
+  //   btn.classList.remove("active");
+  // });
+  // console.log(btnLists);
   // console.log(btnList.forEach())
   // btnList.map((btn) => {
   //   btn.classList.remove("active");
