@@ -12,13 +12,15 @@
 
 // let text = document.getElementById("text-input");
 // console.log(text)
-function updateText() {
-  //   console.log(e);
+updateText = () => {
   // // CODE GOES HERE
   //   console.log("hello im updating");
   let text = document.getElementById("text-input").value;
   document.getElementById("text-output").innerHTML = text;
-}
+  document
+    .getElementById("text-output")
+    .setAttribute("style", "white-space: pre;");
+};
 /**
  * Toggle the bold class for the output text
  * HINT: Use the onclick function insite HTML
@@ -26,7 +28,7 @@ function updateText() {
  * HINT: Use the classList property
  * HINT: Toggle .active class for the button
  */
-function makeBold(elem) {
+makeBold = (elem) => {
   console.log(elem.classList.toggle("active"));
   console.log(elem);
   elem.classList.toggle("active");
@@ -34,15 +36,15 @@ function makeBold(elem) {
   document.getElementById("text-output").classList.toggle("bold");
   //CODE GOES HERE
   //   console.log("line 31 of makeBold function onclick placed in index.html",this.text);
-}
+};
 
 /**
  * Toggle the italic class for the output text
  */
-function makeItalic(elem) {
+makeItalic = (elem) => {
   elem.classList.toggle("active");
   document.getElementById("text-output").classList.toggle("italic");
-}
+};
 
 /**
  * Toggle the underline class for the output text
@@ -50,18 +52,21 @@ function makeItalic(elem) {
  * HINT: Use the classList property
  * HINT: Use contains, remove, and add functions
  */
-function makeUnderline(elem) {
+makeUnderline = (elem) => {
   elem.classList.toggle("active");
   let formattedText = document.getElementById("text-output");
-  if (formattedText.classList.contains("underline")) {
-    formattedText.classList.remove("underline");
-    console.log(formattedText, "remove underline class");
-  } else {
-    formattedText.classList.add("underline");
-    console.log(formattedText, "add underline class");
-  }
+  formattedText.classList.contains("underline")
+    ? formattedText.classList.remove("underline")
+    : formattedText.classList.add("underline");
+  // if (formattedText.classList.contains("underline")) {
+  //   formattedText.classList.remove("underline");
+  //   console.log(formattedText, "remove underline class");
+  // } else {
+  //   formattedText.classList.add("underline");
+  //   console.log(formattedText, "add underline class");
+  // }
   //CODE GOES HERE
-}
+};
 
 /**
  * Toggle the style textAlign attribute
@@ -69,16 +74,23 @@ function makeUnderline(elem) {
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-function alignText(elem, alignType) {
+alignText = (elem, alignType) => {
   // CODE GOES HERE
   //   set the active state get the element.classlist
   elem.classList.toggle("active");
   console.log(alignType);
   document.getElementById("text-output").style.textAlign = alignType;
-  let btnList = document.getElementsByClassName("align");
-  for (let i = 0; i < btnList.length; i++) {
-    btnList[i].classList.remove("active");
-    console.log(btnList[i])
-  }
+  let btnList = document.querySelectorAll("align").forEach((btn)=>{
+    btn.classList.remove("active")
+  });
+  console.log(btnList)
+  // console.log(btnList.forEach())
+  // btnList.map((btn) => {
+  //   btn.classList.remove("active");
+  // });
+  // for (let i = 0; i < btnList.length; i++) {
+  //   btnList[i].classList.remove("active");
+  //   console.log(btnList[i]);
+  // }
   elem.classList.add("acitve");
-}
+};
